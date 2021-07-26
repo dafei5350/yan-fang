@@ -1,0 +1,95 @@
+<cu-custom bgColor="bg-diy-red" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">验房报告</view>
+</cu-custom>
+
+<view class="container">
+	<van-collapse 
+      value="{{ activeNames }}" 
+      bind:change="onCollapse">
+      <block wx:for="{{ exquisiteList.list }}" wx:key="{{index}}">
+        <van-collapse-item name="{{index}}"  disabled="{{item.isRule == 'yes'?true:false}}">
+          <view slot="title">
+            <view class="falign-center">
+              <van-icon class="iconfont" class-prefix="icon" name="{{item.icon}}" size="50rpx" color="#aaaaaa" />
+              <text class="text-xl margin-left-sm">{{item.title}}</text>
+            </view>
+          </view>
+					<view slot="value">
+						<view class="right-icon {{item.isRule === 'yes' ? 'text-green': 'text-red'}}" >
+							<text class="{{item.isRule === 'yes' ? 'cuIcon-roundcheckfill': 'cuIcon-roundclosefill'}} lg"></text> 
+							{{ item.isRule === 'yes' ? '符合标准': '不符合标准'}}
+						</view>
+					</view>
+          <view class="content">
+						<view class="text-content">{{ item.evaluation }}</view>
+						<view class="grid flex-sub info">
+							<block wx:for="{{ item.fileId }}" wx:key="index">
+								<image class="text-img" src="{{ item }}" data-img="{{item}}" catchtap = "viewImg"></image>
+							</block>
+						</view>
+					</view>
+        </van-collapse-item>
+      </block>
+    </van-collapse>
+</view>
+
+<view class="tips">
+	<view class="title">提示</view>
+	<view>1、如果您对我们的验房报告有疑问，请第一时间联系我们的客服人员</view>
+	<view>2、如需电子报告，请联系客服索要，本程序暂不支持生成电子报告</view>
+	<view>感谢对匠人验房的关注，祝业主们收房顺利，生活愉快！</view>
+</view>
+<view class="standard margin-sm">
+	<view class="bg-green padding-sm radius light">
+		<view class="text-center text-shadow text-bold text-xl">查验标准</view>
+		<view class="text-shadow">
+			JGJ/T304-2013第15.6.1有洗浴设备的卫生间应设有局部等电位箱(盒)卫生间内安装的金属管道,浴缸,淋浴器,暖气片等外露的可接近导体应与等电位盒内端子板接!5.6.2局部等电位联结排与各连接点间应采用多股铜芯有黄绿色标志的导线连接,不得进行串联,导线截面积不应小于4m25.6.3联结线连接应采用专用接线端子或包箍连接,连接应紧密牢固,防松零件应齐全,包箍宜与接点材质相同!
+		</view>
+
+		<view class="text-center text-shadow text-bold margin-top">住宅室内装饰装修工程质量验收规范</view>
+		<view class="text-shadow">
+			JGJ/T304-2013 10.2.2 木地板工程的基层板铺设行牢 固，不松动。 9.2.2 饰面砖粘贴应牢固，表面应平整， 洁净，色泽协调一致，满贴法施工的饰 面砖工程应无 空鼓。 17.2.2 暗敷排水立管的检查口应设置 检修门。 14.3.7 淋浴间打胶部位应打胶完整，胶 面光滑，均匀，无污染。 14.2.8 卫生洁具给水配件安装应牢固， 卫生洁具与墙体台面结合部应进行防水 密封理。 14.3.2 淋浴间与相应的墙体结合部位 应无渗漏。
+		</view>
+		<view class="text-center text-shadow text-bold margin-top">建筑装饰装修工程施工质量验收规范</view>
+		<view class="text-shadow">
+			(GB50210-2018) 5.3.6 金属门窗表面应洁净、平整、光 滑、色泽一致，无锈蚀。大面应无划痕、 碰伤。漆膜或保护层应连续。 5.3.8 金属门窗框与墙体之间的缝隙应 填嵌饱满，并采用密封胶密封。密封胶 表面应光滑、顺直，无裂纹。 6.2.10 木门窗与墙体间的缝隙应填嵌饱 满10.2.4内墙饰面砖粘贴工程阳角与大 面无空鼓（大面只要求距边 10MM 以内的 大面无空鼓） 7.2.6 整体吊顶材料表面应洁净，色泽一 致，不得有翘曲、裂缝及缺损，压条应平直，宽窄一致。 9.4.6 木饰面板安装立面垂直度不大于 2mm，表面平整度不大于 1mm，阴阳角方 正不大于 2mm，接缝直线度不大于 2mm， 接缝宽度不大于 1mm，墙裙、勒角上口直 线度不大于 2mm。
+		</view>
+		<view class="text-center text-shadow text-bold margin-top">建筑地面工程施工质量验收规</view>
+		<view class="text-shadow">
+			GB50209-2010 中第 6.2.7 面层与下一层的结合应牢固，无 空鼓（单块允许局部空鼓，但每个自然 间空鼓数量不大于总数 5％） 6.2.8 砖面层表面应洁净，图案清晰， 色泽一致，接缝应平整，深浅一致，周 边顺直，板块应无裂纹，掉角和楞等缺 陷 6.2.10 踢脚线表面应洁净，与柱墙面的结合应牢固，踢脚线高度与出墙厚度应 均匀一致 7.1.8 木质地板表面平整度不大于 3MM 住宅装饰装修工程施工规范 GB50327-2001 16.3.6 电源线及插座与电视线及插座 的水平间距不应小于 500mm。
+		</view>
+		<view class="text-center text-shadow text-bold margin-top">住宅室内装饰装修工程质量验收规范</view>
+		<view class="text-shadow">
+			JGJ/T304-2013 10.2.2 木地板工程的基层板铺设行牢 固，不松动。 9.2.2 饰面砖粘贴应牢固，表面应平整， 洁净，色泽协调一致，满贴法施工的饰 面砖工程应无空鼓。 12.2.7 储柜表面应平整，光滑，洁净， 色泽一致，不露钉帽，无锤印，不应变 形，裂缝及损坏现象，出墙尺寸一致，柜门边缝应均匀一致。 13.2.4 橱柜柜体贴面应严密，平整，无脱胶，胶迹和鼓包现象，裁割部位应进 行封边处理。
+		</view>
+		<view class="text-center text-shadow text-bold margin-top">住宅建筑电气设计规范 </view>
+		<view class="text-shadow">
+			JGJ242-2011 14.3.2 住宅建筑安全技术防范系统。家 庭安全系统应设置紧急求助报警装置。 14.3.5 紧急求助报警装置每户应至少 安装一处紧急求助报警装置
+		</view>
+		<view class="text-center text-shadow text-bold margin-top">敷设供暖供冷技术规程</view>
+		<view class="text-shadow">
+			JGJ142-2012 第 5.6.2 地暖水压试验压力应为工作 压力的 1.5 倍，且不应小于 0.6MPa， 在试压情况下稳压 1h，其压力降不应大 于 0.05MPa 且不渗不漏。GB50096-2011 第 5.6.2 中规定 阳台 栏杆设计必须防止儿童攀爬的构造，栏 杆的垂直杆件间净间距不应大于 0.11m， 放置花盆处必须采取防坠落措施 5.3.3 厨房应设置洗涤池、案台、炉灶及排油烟机、热水器等设施或为其预留位置。
+		</view>
+		<view class="text-center text-shadow text-bold margin-top">城镇燃气室内工程施工与质量验收规范</view>
+		<view class="text-shadow">
+			CJJ94-2009 第 5.3.1 安装橱柜内燃气 计量表应满足抄表，检修及更换的要求， 并应具有自然通风功能。
+		</view>
+		<view class="text-center text-shadow text-bold margin-top">住宅建筑电气设计规范</view>
+		<view class="text-shadow">
+			JGJ242-2011 中 6.4.7 线径小于 16mm 平方相线与中性线 和相应保护线导体截面相同
+		</view>
+		<view class="text-center text-shadow text-bold margin-top">河南省成品房住宅工程质量分户验收规范</view>
+		<view class="text-shadow">
+			DBJ/T194-2018 5.1.1 地砖，石材等湿式工法作业的面层 与基层应结合牢固，无空鼓。 6.1.11 门窗框与墙体之间的缝隙应填嵌 饱满，并用密封胶密封，密封胶表面应 光滑，顺直，无裂缝。 7.2.2 暗装排水立管检查口处应设置检 修门。 8.4.1 设有洗浴设备的卫生间局部等电 位端子箱联结导体的材料符合设计要 求，且等电位端子箱不应被覆盖。 5.1.7 地砖接缝高低差不应大于 0.5mm
+		</view>
+	</view>
+</view>
+<view class="flooter-logo">
+  <image src="https://cdn.dafei110.cn/config/logo.png"></image>
+</view>
+
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/img/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

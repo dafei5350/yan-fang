@@ -1,0 +1,164 @@
+<cu-custom bgColor="bg-diy-red" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">订单详情</view>
+</cu-custom>
+<view class="order my-radius dynamic" wx:if="{{masterId}}">
+  <view class="cu-item shadow shadow">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <image class="cu-avatar round lg" src="{{ masterInfo.avatar }}"></image>
+        <view class="content flex-sub">
+          <view>{{ masterInfo.name }}</view>
+          <view class="text-gray text-sm flex justify-between">{{ masterInfo.phone }}</view>
+        </view>
+        <view class="action" bindtap="playCall" data-phone="{{masterInfo.phone}}">
+          <image class="text-gray text-sm right-img" src="../../assets/img/iphone.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-card dynamic ">
+  <view class="order order-bottom">
+    <view class="bg-white my-radius">
+      <block  wx:if="{{!refund}}">
+        <view class="box-line padding">
+          <view class="cu-steps steps-arrow ">
+            <view class="cu-item steps-order text-green">
+              <van-icon class="iconfont" class-prefix="icon" name="yuyue" size="75rpx" color="#39b54a" />
+              线上预约
+            </view>
+            <view class="cu-item steps-order {{(status == 'wait') || (status == 'check') || (status == 'success')?'text-green':'text-gray'}}">
+              <van-icon class="iconfont" class-prefix="icon" name="reserve" size="75rpx" color="{{(status == 'wait') || (status == 'check') || (status == 'success')?'#39b54a':'#aaaaaa'}}" />
+              平台派单
+            </view>
+            <view class="cu-item steps-order {{(status == 'check') || (status == 'success')?'text-green':'text-gray'}}">
+              <van-icon class="iconfont" class-prefix="icon" name="baogao" size="75rpx" color="{{(status == 'wait') || (status == 'check')|| (status == 'success')?'#39b54a':'#aaaaaa'}}" />
+              师傅验收
+            </view>
+            <view class="cu-item steps-order {{status == 'success'?'text-green':'text-gray'}}">
+              <van-icon class="iconfont" class-prefix="icon" name="yanzheng" size="75rpx" color="{{status == 'success'?'#39b54a':'#aaaaaa'}}" />
+              确认报告
+            </view>
+          </view>
+        </view>  
+      </block>
+      <block  wx:if="{{ refundStstus }}">
+        <view class="padding-sm">
+          <view class="bg-red padding radius text-center light">
+            <view class="text-lg">如果您请与管理员联系</view>
+          </view>
+        </view>
+      </block>
+      <block  wx:if="{{refund}}">
+        <view class="cu-bar bg-white title-line">
+          <view class="action">
+            <text class="cuIcon-titles text-red"></text>
+            <text class="text-xl text-bold">退款进度</text>
+          </view>
+        </view>
+        <view class="box-line padding">
+          <view class="cu-steps steps-arrow ">
+            <view class="cu-item steps-order text-green">
+              <van-icon name="after-sale" size="75rpx" color="#39b54a"/>
+              申请退款
+            </view>
+            <view class="cu-item steps-order {{(refundStstus == 'application') || (refundStstus == 'success') || (refundStstus == 'fail')?'text-green':'text-gray'}}">
+              <van-icon name="cashier-o" size="75rpx" color="{{(refundStstus == 'application') || (refundStstus == 'success') || (refundStstus == 'fail')?'#39b54a':'#aaaaaa'}}"/>
+              平台审核
+            </view>
+            <block wx:if="{{refundStstus == 'success' || refundStstus != 'fail'}}">
+              <view class="cu-item steps-order {{refundStstus == 'success'?'text-green':'text-gray'}}">
+                <van-icon name="passed" size="75rpx" color="{{refundStstus == 'success'?'#39b54a':'#aaaaaa'}}"/>
+                退款成功
+              </view>
+            </block>
+            <block wx:if="{{refundStstus == 'fail'}}">
+              <view class="cu-item steps-order text-red">
+                <van-icon name="passed" size="75rpx" color="#e74c3c"/>
+                退款失败
+              </view>
+            </block>
+          </view>
+        </view>  
+      </block>
+    
+      <view class="flex  my-radius shadow-lg">
+        <view class='text-content order-centent'>
+          <view class="cu-form-group">
+            <view class="title">订单号：</view>
+            <input value="{{orderId}}" disabled></input>
+          </view>
+          <view class="cu-form-group">
+            <view class="title">验房时间：</view>
+            <input value="{{time}}" disabled></input>
+          </view>
+          <view class="cu-form-group">
+            <view class="title">支付金额：</view>
+            <input value="{{money}}" disabled></input>
+            <view class="cu-capsule radius">
+              <view class="cu-tag bg-red light">元</view>
+            </view>
+          </view>
+          <view class="cu-form-group">
+            <view class="title">验房类型：</view>
+            <input value="{{homeType}}" disabled></input>
+          </view>
+          <view class="cu-form-group">
+            <view class="title">验房面积：</view>
+            <input value="{{m2}}" disabled></input>
+          </view>
+          <view class="cu-form-group">
+            <view class="title">小区名称：</view>
+            <input value="{{xiaoqu}}" disabled></input>
+          </view>
+          <view class="cu-form-group">
+            <view class="title">详细地址：</view>
+            <input value="{{addressInfo}}" disabled></input>
+          </view>
+          <view class="cu-form-group">
+            <view class="title">所在城市：</view>
+            <input value="{{city}}" disabled></input>
+          </view>
+          <view class="cu-form-group">
+            <view class="title">联系人：</view>
+            <input value="{{name}}" disabled></input>
+          </view>
+          <view class="cu-form-group">
+            <view class="title">联系电话：</view>
+            <input value="{{phone}}" disabled></input>
+          </view>
+          <view class="cu-form-group">
+            <view class="title">备注：</view>
+            <input value="{{remark}}" disabled></input>
+          </view>
+        </view>
+      </view>
+      <view class="footer-line bottom-line padding">
+        <view class="qrcode" wx:if="{{masterId}}">
+          <canvas canvas-id="qrcode" />
+        </view>
+        <view class="tips">
+          <view class="title">注意</view>
+          <view>1、分配验房师后才会出现核销二维码</view>
+          <view>2、验房师傅达到指定现场后方可让师傅扫描核销订单，并开始验房</view>
+          <view>3、有任何疑问请第一时间联系我们</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="padding flex flex-direction" wx:if="{{(status == 'wait') || (status == 'order') &&  (refundStstus != 'success')}}">
+    <button class="cu-btn bg-diy-red margin-tb-sm lg" bindtap="toRefund">申请退款</button>
+  </view>
+  <kefu></kefu>
+  <view class="cu-bar bg-white tabbar border shop order-foot" wx:if="{{status == 'success'}}">
+    <view class="bg-green submit" bindtap="toComment" wx:if="{{!isComment}}">服务评价</view>
+    <view class="bg-red submit" bindtap="toReportInfo">验房报告</view>
+  </view>
+</view>
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/img/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

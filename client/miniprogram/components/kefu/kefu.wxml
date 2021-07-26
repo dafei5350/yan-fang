@@ -1,0 +1,11 @@
+
+
+<movable-area>
+  <movable-view x='{{x}}' y='{{y}}' direction="all" style="pointer-events: auto;">
+    <view class="kefu bg-green light shadow-blur">
+      <van-button round type="info" open-type="contact" color="linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)">
+        <van-icon name="smile-comment-o" size="30" color="#39b54a" />
+      </van-button>
+    </view>
+  </movable-view>
+</movable-area>

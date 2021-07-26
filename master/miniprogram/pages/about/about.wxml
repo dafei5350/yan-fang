@@ -1,0 +1,80 @@
+<cu-custom bgColor="bg-diy-code" isCustom="{{true}}">
+  <view slot="content">关于开发者</view>
+</cu-custom>
+
+
+<view>
+  <image class="center_bg" mode='aspectFill' src='https://cdn.dafei110.cn/config/my_bg.jpg'></image>
+  <view class="avatar-warp">
+    <image class="avatar" mode='aspectFill' src='https://cdn.dafei110.cn/config/my-avatar.jpg'></image>
+    <view class="nickname">weiliang</view>
+    <view class="user-info">
+      <!-- <view class="cu-tag bg-green light radius">简单、纯粹、优雅</view> -->
+      <view class="cu-tag bg-green light radius">Enjoy when you can, and endure when you must.</view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action sub-title">
+        <text class="text-xl text-bold text-green">关于本项目</text>
+        <text class="bg-green"></text>
+      </view>
+    </view>
+    <view class="padding-sm">
+      <view class="text-black text-xl suojin">本项目主要用于验房行业，为方便验房师傅由线下转为线上而开发的一款微信小程序，为验房相关企业拓展线上业务，由于本人并非该行业专业人员，不合理之处请在<text class="bg-green light radius padding-stag">issue</text>中反馈或直接联系本人，十分感谢您的建议</view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action sub-title">
+        <text class="text-xl text-bold text-green ">关于本人</text>
+        <text class="bg-green"></text>
+      </view>
+    </view>
+    <view class="myself padding-sm cu-list menu ">
+
+        <view class="order" bindtap="toOrderInfo" data-id="{{item._id}}">
+          <view class="bg-white radius-index radius">
+            <view class="flex flex-wrap my-radius shadow-lg">
+              <text class="cu-tag bg-orange light radius cu-tag-mg"> Vue </text>
+              <text class="cu-tag bg-red light radius cu-tag-mg"> Node.js </text>
+              <text class="cu-tag bg-orange light radius cu-tag-mg"> Linux </text>
+              <text class="cu-tag bg-orange light radius cu-tag-mg"> uniapp </text>
+              <text class="cu-tag bg-orange light radius cu-tag-mg"> Taro </text>
+              <text class="cu-tag bg-red light radius cu-tag-mg"> Flutter </text>
+              <text class="cu-tag bg-red light radius cu-tag-mg"> Electron </text>
+              <text class="cu-tag bg-orange light radius cu-tag-mg"> Webpack </text>
+              <text class="cu-tag bg-green light radius cu-tag-mg"> Bootstrap </text>
+              <text class="cu-tag bg-orange light radius cu-tag-mg"> Less </text>
+              <text class="cu-tag bg-red light radius cu-tag-mg"> Sass </text>
+              <text class="cu-tag bg-green light radius cu-tag-mg"> 微信小程序 </text>
+              <text class="cu-tag bg-green light radius cu-tag-mg"> PhotoShop </text>
+              <text class="cu-tag bg-red light radius cu-tag-mg"> CAD </text>
+              <text class="cu-tag bg-red light radius cu-tag-mg"> Figma </text>
+            </view>
+            <view class="cu-form-group margin-top" bindtap="copyGithub">
+              <view class="title">
+                <text class="cuIcon-github lg text-gray margin-right-text"></text>Github
+              </view>
+              <view class="text-black">https://github.com/dafei5350</view>
+            </view>
+            <view class="cu-form-group" bindtap="copyMail">
+              <view class="title">
+                <text class="cuIcon-mail lg text-gray margin-right-text"></text>邮箱
+              </view>
+              <view class="text-black">535027650@qq.com</view>
+            </view>
+          </view>
+        </view>
+    </view>
+    <van-divider
+      dashed
+      contentPosition="center"
+    >
+      赞赏
+    </van-divider>
+    <view class="parise padding" bindtap="viewPraise">
+      <image src="https://cdn.dafei110.cn/config/zanshang.png"></image>
+    </view>
+  </view>
+</view>
+
+<view class="footer-text">
+  <text class="text-gray">简单 纯粹 优雅</text>
+</view>

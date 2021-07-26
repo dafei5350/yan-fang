@@ -1,0 +1,8 @@
+<cu-custom bgColor="bg-diy-red" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">常见问题</view>
+</cu-custom>
+
+
+
+<kefu></kefu>

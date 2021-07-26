@@ -1,0 +1,33 @@
+<cu-custom bgColor="bg-diy-red" isCustom="{{true}}">
+	<view slot="content">订单历史</view>
+</cu-custom>
+
+<van-empty wx:if="{{orderList.length == 0}}" description="暂无订单" />
+<block wx:for="{{orderList}}" wx:key="index">
+	<view class="order" bindtap="toHisOrderInfo" data-id="{{item._id}}">
+		<view class="bg-white radius-index radius">
+			<view class="cu-bar box-line">
+				<view class="action">
+					<text class="cuIcon-titles text-green"></text>
+					<text class="text-xl text-bold">{{item.main.xiaoqu}}</text>
+				</view>
+			</view>
+			<view class="flex  my-radius shadow-lg padding-sm">
+				<view class='text-content order-centent '>
+					<text>联系人： {{item.main.name}}</text>
+					<text>联系电话： {{item.main.phone}}</text>
+					<text>房屋类型： {{item.main.homeType}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</block>
+
+
+
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

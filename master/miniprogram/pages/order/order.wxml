@@ -1,0 +1,116 @@
+<cu-custom bgColor="bg-diy-red">
+	<view slot="content">待处理订单</view>
+</cu-custom>
+
+ <scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{TabCur == 'untreated'?'text-red cur':''}}" bindtap="tabSelect" data-id="untreated">
+     未处理
+    </view>
+		<view class="cu-item flex-sub {{TabCur == 'ongoing'?'text-red cur':''}}" bindtap="tabSelect" data-id="ongoing">
+     正在进行
+    </view>
+  </view>
+</scroll-view>
+<!-- 管理员 -->
+<block wx:if="{{Identity === 'admin'}}">
+	<view wx:if="{{TabCur == 'untreated'}}">
+		<block wx:for="{{orderList}}" wx:key="index" wx:if="{{!item.masterId}}">
+			<view class="order" bindtap="toOrderInfo" data-id="{{item._id}}">
+				<view class="bg-white radius-index radius">
+					<view class="cu-bar box-line">
+						<view class="action">
+							<text class="cuIcon-titles text-red"></text>
+							<text class="text-xl text-bold">{{item.xiaoqu}}</text>
+						</view>
+					</view>
+					<view class="flex  my-radius shadow-lg">
+						<view class='text-content order-centent'>
+							<text>联系人： {{item.name}}</text>
+							<text>联系电话： {{item.phone}}</text>
+							<text>验房时间： {{item.inspectionTime}}</text>
+							<text>房屋类型： {{item.homeType}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+	<view wx:if="{{TabCur == 'ongoing'}}">
+		<block wx:for="{{orderList}}" wx:key="index"  wx:if="{{item.masterId}}">
+			<view class="order" bindtap="toOrderInfo" data-id="{{item._id}}">
+				<view class="bg-white radius-index radius">
+					<view class="cu-bar box-line">
+						<view class="action">
+							<text class="cuIcon-titles text-red"></text>
+							<text class="text-xl text-bold">{{item.xiaoqu}}</text>
+						</view>
+					</view>
+					<view class="flex  my-radius shadow-lg">
+						<view class='text-content order-centent'>
+							<text>联系人： {{item.name}}</text>
+							<text>联系电话： {{item.phone}}</text>
+							<text>验房时间： {{item.inspectionTime}}</text>
+							<text>房屋类型： {{item.homeType}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+</block>
+
+<!-- 验房师 -->
+<block wx:if="{{Identity === 'master'}}">
+	<view wx:if="{{TabCur == 'untreated'}}">
+		
+		<block wx:for="{{orderList}}" wx:key="index" wx:if="{{item.status === 'wait'}}">
+			<view class="order" bindtap="toOrderInfo" data-id="{{item._id}}" >
+				<view class="bg-white radius-index radius">
+					<view class="cu-bar box-line">
+						<view class="action">
+							<text class="cuIcon-titles text-red"></text>
+							<text class="text-xl text-bold">{{item.xiaoqu}}</text>
+						</view>
+					</view>
+					<view class="flex  my-radius shadow-lg padding-sm">
+						<view class='text-content order-centent'>
+							<text>联系人： {{item.name}}</text>
+							<text>联系电话： {{item.phone}}</text>
+							<text>验房时间： {{item.inspectionTime}}</text>
+							<text>房屋类型： {{item.homeType}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+	<view wx:if="{{TabCur == 'ongoing'}}">
+		<block wx:for="{{orderList}}" wx:key="index" wx:if="{{item.status === 'check'}}">
+			<view class="order" bindtap="toOrderInfo" data-id="{{item._id}}">
+				<view class="bg-white radius-index radius">
+					<view class="cu-bar box-line">
+						<view class="action">
+							<text class="cuIcon-titles text-red"></text>
+							<text class="text-xl text-bold">{{item.xiaoqu}}</text>
+						</view>
+					</view>
+					<view class="flex  my-radius shadow-lg">
+						<view class='text-content order-centent'>
+							<text>联系人： {{item.name}}</text>
+							<text>联系电话： {{item.phone}}</text>
+							<text>验房时间： {{item.inspectionTime}}</text>
+							<text>房屋类型： {{item.homeType}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+</block>
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

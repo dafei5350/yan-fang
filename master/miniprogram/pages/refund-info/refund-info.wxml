@@ -1,0 +1,122 @@
+<cu-custom bgColor="bg-diy-red" isCustom="{{true}}">
+
+	<view slot="content">退款详情</view>
+</cu-custom>
+
+<view class="order">
+	<view class="bg-white radius-index radius">
+		<view class="cu-bar box-line">
+			<view class="action">
+				<text class="cuIcon-titles text-green"></text>
+				<text class="text-xl text-bold">订单详情</text>
+			</view>
+		</view>
+		<view class="flex  my-radius shadow-lg">
+			<view class='text-content order-centent'>
+				<view class="cu-form-group">
+					<view class="title">订单号：</view>
+					<input value="{{orderId}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">验房时间：</view>
+					<input value="{{orderTime}}" disabled></input>
+
+				</view>
+				<view class="cu-form-group">
+					<view class="title">支付金额：</view>
+					<input value="{{money / 100}}" disabled></input>
+          <view class="cu-capsule radius">
+            <view class="cu-tag bg-red light">元</view>
+          </view>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">验房类型：</view>
+					<input value="{{homeType}}" disabled></input>
+
+				</view>
+				<view class="cu-form-group">
+					<view class="title">验房面积：</view>
+					<input value="{{m2}}" disabled></input>
+
+				</view>
+				<view class="cu-form-group">
+					<view class="title">小区名称：</view>
+					<input value="{{xiaoqu}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">详细地址：</view>
+					<input value="{{address}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">所在城市：</view>
+					<input value="{{city}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">联系人：</view>
+					<input value="{{name}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">联系电话：</view>
+					<input value="{{phone}}" disabled></input>
+          <button class="cu-btn bg-green shadow" bindtap="cellPhone" data-phone="{{phone}}"> 
+						<text class="cuIcon-phone lg text-white"></text>
+					</button>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">备注：</view>
+					<input value="{{remark}}" disabled></input>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+
+<view class="order">
+	<view class="bg-white radius-index radius">
+		<view class="cu-bar box-line">
+			<view class="action">
+				<text class="cuIcon-titles text-green"></text>
+				<text class="text-xl text-bold">退款详情</text>
+			</view>
+		</view>
+		<view class="flex  my-radius shadow-lg">
+			<view class='text-content order-centent'>
+				<view class="cu-form-group">
+					<view class="title">退款单号：</view>
+					<input value="{{refundId}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">退款金额：</view>
+					<input value="{{money / 100}}" disabled></input>
+          <view class="cu-capsule radius">
+            <view class="cu-tag bg-red light">元</view>
+          </view>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">退款状态：</view>
+					<input type="text" value="待批准" wx:if="{{ status == 'application'}}">  </input>
+					<input type="text" value="已退款" wx:if="{{ status == 'success'}}">  </input>
+					<input type="text" value="已拒绝申请" wx:if="{{ status == 'fail'}}">  </input>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="padding flex flex-direction" wx:if="{{ status == 'application'}}">
+	<button class="cu-btn bg-green margin-tb-sm lg shadow" bindtap="agree">
+		<text class="cuIcon-roundcheck lg text-white icon-left "></text>
+		同意退款
+	</button>
+	<button class="cu-btn bg-red margin-tb-sm lg shadow" bindtap="reject">
+		<text class="cuIcon-roundclose lg text-white icon-left"></text>
+		拒绝退款
+	</button>
+</view>
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

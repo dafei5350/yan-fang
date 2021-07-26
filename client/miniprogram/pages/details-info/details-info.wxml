@@ -1,0 +1,62 @@
+<block wx:if="{{source === 'dynamic'}}">
+  <cu-custom bgColor="bg-diy-red" isCustom="{{true}}">
+    <view slot="content">评价详情</view>
+  </cu-custom>
+</block>
+<block wx:if="{{source === 'comment'}}">
+  <cu-custom bgColor="bg-diy-red" isHome="{{true}}">
+    <view slot="content">评价详情</view>
+  </cu-custom>
+</block>
+<view class="cu-card dynamic ">
+  <view class="cu-item shadow" bindtap="toinfo">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+          <image class="cu-avatar round lg" src="{{ avatarUrl || 'https://cdn.dafei110.cn/config/avatar.jpg'}}"></image>
+        <view class="content flex-sub">
+          <view>{{ nickName || '某网友' }}</view>
+          <view class="text-gray text-sm flex justify-between">
+           {{ createTime }}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="text-content">
+      {{ evaluation }}
+    </view>
+    <view class="grid flex-sub info">
+      <block wx:for="{{ imgList }}" wx:key >
+        <image class="text-img" src="{{ item }}" bindtap="previewImg"></image>
+      </block>
+    </view>
+    <view class="text-gray text-sm text-right card-footer">
+      <view class="loupan text-left" wx:if="{{ xiaoqu }}">
+        <view class="cu-tag bg-grey light round">楼盘：{{ xiaoqu }}</view>
+      </view>
+      <view class="footer-icon">
+        <text class="cuIcon-attentionfill text-xl margin-lr-xs">{{ watch }}</text>
+        <text class="cuIcon-appreciatefill text-xl margin-lr-xs text-red" catchtap="onLike"> {{ like }} </text>
+      </view>
+    </view>
+  </view>
+
+</view>
+<view class="padding flex flex-direction" wx:if="{{shareOrder}}">
+  <button class="cu-btn bg-diy-red margin-tb-sm lg" bindtap="toReportInfo">
+    <van-icon class="iconfont margin-right-sm" class-prefix="icon" name="yanzheng" size="45rpx" color="#ffffff" />
+    <text>查看验房报告</text>  
+  </button>
+</view>
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/img/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>
+
+
+
+
+<view class="flooter-logo">
+  <image src="https://cdn.dafei110.cn/config/logo.png"></image>
+</view>

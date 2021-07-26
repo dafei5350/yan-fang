@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/order/order",
+    "pages/dashboard/dashboard",
+    "pages/order-info/order-info",
+    "pages/master/master",
+    "pages/history-order/history-order",
+    "pages/account/account",
+    "pages/about/about",
+    "pages/write-report/write-report",
+    "pages/my-self/my-self",
+    "pages/comment/comment",
+    "pages/standard/standard",
+    "pages/exquisite-report/exquisite-report",
+    "pages/rough-report/rough-report",
+    "pages/add-comment/add-comment",
+    "pages/refund/refund",
+    "pages/refund-info/refund-info",
+    "pages/score/score",
+    "pages/demo/demo",
+    "pages/history-info/history-info"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "匠人验房-师傅端",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "cu-custom": "/components/cu-custom/cu-custom",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-empty": "@vant/weapp/empty/index"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "/assets/img/tab/order0.png",
+        "selectedIconPath": "/assets/img/tab/order1.png"
+      },
+      {
+        "pagePath": "pages/dashboard/dashboard",
+        "text": "控制台",
+        "iconPath": "/assets/img/tab/control0.png",
+        "selectedIconPath": "/assets/img/tab/control1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,102 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "新增验房师",
+          "pathName": "pages/master/master",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "验房师管理",
+          "pathName": "pages/account/account",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "评论管理",
+          "pathName": "pages/comment/comment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "新增虚拟评论",
+          "pathName": "pages/add-comment/add-comment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "毛坯房 验房报告",
+          "pathName": "pages/rough-report/rough-report",
+          "query": "orderId=7171623835262880",
+          "scene": null
+        },
+        {
+          "name": "订单详情",
+          "pathName": "pages/order-info/order-info",
+          "query": "id=28ee4e3e60d217d32453dc6e139e5fd0",
+          "scene": null
+        },
+        {
+          "name": "[管理员] 控制台",
+          "pathName": "pages/dashboard/dashboard",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "[验房师] 待处理订单",
+          "pathName": "pages/order/order",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "管理员 控制台",
+          "pathName": "pages/dashboard/dashboard",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "关于开发者",
+          "pathName": "pages/about/about",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "[管理员]待处理订单 ",
+          "pathName": "pages/order/order",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "[管理员] 订单详情",
+          "pathName": "pages/order-info/order-info",
+          "query": "id=28ee4e3e60d2e7fe24765864170d8ecc",
+          "scene": null
+        },
+        {
+          "name": "验房师管理",
+          "pathName": "pages/account/account",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "[管理员] 申请退款",
+          "pathName": "pages/refund/refund",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

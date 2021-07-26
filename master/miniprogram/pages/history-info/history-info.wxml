@@ -1,0 +1,105 @@
+<cu-custom bgColor="bg-diy-red" isCustom="{{true}}">
+	<view slot="content">订单详情</view>
+</cu-custom>
+<view class="order">
+	<view class="bg-white radius-index radius">
+		<view class="cu-bar box-line">
+			<view class="action">
+				<text class="cuIcon-titles text-green"></text>
+				<text class="text-xl text-bold">订单处理详情</text>
+			</view>
+		</view>
+		<view class="flex  my-radius shadow-lg">
+			<view class='text-content order-centent'>
+				<view class="cu-form-group">
+					<view class="title">验房师傅：</view>
+					<input value="{{masterName}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">师傅电话：</view>
+					<input value="{{masterPhone}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">完成时间：</view>
+					<input value="{{finishTime}}" disabled></input>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="order margin-bottom">
+	<view class="bg-white radius-index radius">
+		<view class="cu-bar box-line">
+			<view class="action">
+				<text class="cuIcon-titles text-green"></text>
+				<text class="text-xl text-bold">订单详情</text>
+			</view>
+		</view>
+		<view class="flex  my-radius shadow-lg">
+			<view class='text-content order-centent'>
+				<view class="cu-form-group">
+					<view class="title">订单号：</view>
+					<input value="{{orderId}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">验房时间：</view>
+					<input value="{{inspectionTime}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">支付金额：</view>
+					<input value="{{money / 100}}" disabled></input>
+					<view class="cu-capsule radius">
+              <view class="cu-tag bg-red light">元</view>
+            </view>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">验房类型：</view>
+					<input value="{{homeType}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">验房面积：</view>
+					<input value="{{m2}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">小区名称：</view>
+					<input value="{{xiaoqu}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">详细地址：</view>
+					<input value="{{addressInfo}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">所在城市：</view>
+					<input value="{{city}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">联系人：</view>
+					<input value="{{name}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">联系电话：</view>
+					<input value="{{phone}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">备注：</view>
+					<input value="{{remark}}" disabled></input>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+
+
+
+
+
+
+
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

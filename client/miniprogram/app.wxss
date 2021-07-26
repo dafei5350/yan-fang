@@ -1,0 +1,55 @@
+@import "./style/animation.wxss";
+@import "./style/icon.wxss";
+@import "./style/iconali.wxss";
+@import "./style/main.wxss";
+
+page{
+	background-color: #F6F6F6;
+  /* background-color: #F2F1F6; */
+}
+.container {
+  max-width: 100vw;
+}
+.my-radius {
+	border-radius: 15rpx;
+}
+.top-radius{
+	border-top-left-radius: 15rpx;
+}
+.bottom-radius{
+	border-bottom-left-radius: 15rpx;
+}
+.order-btn{
+	box-sizing: border-box;
+	transform: translate(0rpx, 0rpx);
+	box-shadow: 6rpx 6rpx 8rpx rgba(204, 69, 59, 0.2);
+}
+.falign-center{
+	display: flex;
+	align-items: center;
+}
+.flooter-logo{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 20px;
+}
+.flooter-logo image{
+	width: 150px;
+	height: 70px;
+	opacity:0.5;
+}
+.tips{
+	display: flex;
+	flex-direction: column;
+	margin: 10px 15rpx;
+	background-color: #FFEAC6;
+	border-radius: 10px;
+	color: #CD5107;
+	padding: 25rpx;
+	margin-bottom: 50px;
+}
+.tips .title{
+	text-align: center;
+	margin: 10rpx 0;
+}

@@ -1,0 +1,44 @@
+<cu-custom bgColor="bg-diy-red" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">验房师评价</view>
+</cu-custom>
+
+<block wx:for="{{ scoreList }}" wx:key="index" wx:if="{{scoreList.length != 0}}">
+
+
+<view class="cu-card dynamic">
+  <view class="cu-item shadow bg-red">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <image class="cu-avatar round lg"
+          src="{{ item.avatarUrl || 'https://cdn.dafei110.cn/config/avatar.jpg' }}" />
+        <view class="content flex-sub">
+          <view>{{ item.nickName || '某网友'}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            {{ item.createTime }}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="text-content">
+      {{ item.evaluation }}
+    </view>
+    <view class="text-gray text-sm text-right card-footer margin-sm">
+      <view class="loupan text-left" wx:if="{{item.xiaoqu}}">
+        <view class="cu-tag bg-grey light round">楼盘：{{ item.xiaoqu }}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+</block>
+
+<van-empty wx:if="{{scoreList.length == 0}}" description="暂无评价" />
+
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/img/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

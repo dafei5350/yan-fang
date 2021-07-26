@@ -1,0 +1,237 @@
+<cu-custom bgColor="bg-diy-red" isCustom="{{true}}">
+	<view slot="content">订单详情</view>
+</cu-custom>
+
+<view class="order">
+	<view class="bg-white radius-index radius">
+		<view class="cu-bar box-line">
+			<view class="action">
+				<text class="cuIcon-titles text-green"></text>
+				<text class="text-xl text-bold">订单详情</text>
+			</view>
+		</view>
+		<view class="flex  my-radius shadow-lg">
+			<view class='text-content order-centent'>
+				<view class="cu-form-group">
+					<view class="title">订单号：</view>
+					<input value="{{orderId}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">验房时间：</view>
+					<input value="{{time}}" disabled></input>
+					<button class="cu-btn bg-green shadow" bindtap="editOrder" data-edit="edit">
+						<text class="cuIcon-write lg text-white"></text>
+					</button>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">支付金额：</view>
+					<input value="{{money / 100}}" disabled></input>
+					<view class="cu-capsule radius">
+              <view class="cu-tag bg-red light">元</view>
+            </view>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">验房类型：</view>
+					<input value="{{homeType}}" disabled></input>
+					<button class="cu-btn bg-green shadow" bindtap="editOrder" data-edit="edit">
+						<text class="cuIcon-write lg text-white"></text>
+					</button>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">验房面积：</view>
+					<input value="{{m2}}" disabled></input>
+					<button class="cu-btn bg-green shadow" bindtap="editOrder" data-edit="edit">
+						<text class="cuIcon-write lg text-white"></text>
+					</button>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">小区名称：</view>
+					<input value="{{xiaoqu}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">详细地址：</view>
+					<input value="{{addressInfo}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">所在城市：</view>
+					<input value="{{city}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">联系人：</view>
+					<input value="{{name}}" disabled></input>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">联系电话：</view>
+					<input value="{{phone}}" disabled></input>
+					<button class="cu-btn bg-green shadow" bindtap="editOrder" data-edit="edit">
+						<text class="cuIcon-write lg text-white"></text>
+					</button>
+				</view>
+				<view class="cu-form-group">
+					<view class="title">备注：</view>
+					<input value="{{remark}}" disabled></input>
+					<button class="cu-btn bg-green shadow" bindtap="editOrder" data-edit="edit">
+						<text class="cuIcon-write lg text-white"></text>
+					</button>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="order dynamic" wx:if="{{masterId}}">
+	<view class="cu-item shadow shadow">
+		<view class="cu-list menu-avatar">
+			<view class="cu-item">
+				<image class="cu-avatar round lg" src="{{ masterInfo.avatar }}"></image>
+				<view class="content flex-sub">
+					<view>{{ masterInfo.name }}</view>
+					<view class="text-gray text-sm flex justify-between">
+						{{ masterInfo.phone }}
+					</view>
+				</view>
+
+				<view class="action" bindtap="playCall" data-phone="{{masterInfo.phone}}">
+					<image class="text-gray text-sm right-img"
+						src="../../assets/iphone.png"></image>
+				</view>
+			</view>
+			<view class="cu-bar bg-white top-line">
+				<view class="action margin-0 flex-sub" bindtap="showModal" data-target="distribution">修改</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="padding flex flex-direction">
+	<button class="cu-btn bg-red margin-tb-sm lg shadow" wx:if="{{status == 'check'}}" bindtap="{{ homeType == '精装房'?'toExquisite':'toRough'}}">
+		<text class="cuIcon-repair lg text-white icon-left "></text>
+		开始验房
+	</button>
+	<button class="cu-btn bg-red margin-tb-sm lg shadow" wx:if="{{!masterId && Identity == 'admin'}}" bindtap="getMasterList" data-target="distribution">
+		<text class="cuIcon-friendadd lg text-white icon-left"></text>
+		分配验房师傅
+	</button>
+	<button class="cu-btn bg-red margin-tb-sm lg shadow" bindtap="onScan">
+		<text class="cuIcon-scan lg text-white icon-left"></text>
+		订单核销
+	</button>
+	<button class="cu-btn bg-red margin-tb-sm lg shadow" bindtap="editOrder" data-edit="edit">
+		<text class="cuIcon-write lg text-white icon-left"></text>
+		修改订单
+	</button>
+</view>
+
+<view class="tips">
+	<view class="title">注意事项</view>
+	<view>1、修改订单请务必和客户沟通后再修改</view>
+	<view>2、只有分配了验房师傅才可以进行验房操作</view>
+	<view>3、请勿重复核销订单</view>
+	<view>来自开发者的善良建议</view>
+</view>
+
+
+<view class="cu-modal {{modalName=='distribution'?'show':''}}">
+	<scroll-view scroll-y class="cu-dialog dialog-fenpei">
+		<view class="cu-bar bg-white justify-end title">
+			<view class="content">分配验房师傅</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<radio-group class="block">
+			<view class="cu-list menu text-left">
+				<view class="cu-item" wx:for="{{masterList}}" data-masterId="{{item._id}}" wx:key bindtap="addMaster">
+					<label class="flex justify-between align-center flex-sub">
+						<view class="flex-sub">{{item.name}}</view>
+						<radio class="round"></radio>
+					</label>
+				</view>
+			</view>
+		</radio-group>
+	</scroll-view>
+</view>
+
+<view class="cu-modal {{modalName=='edit'?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">修改订单信息</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view>
+			<form>
+				<view class="cu-form-group">
+					<view class="title">
+						<text class="cuIcon-time lg text-black"></text>
+						验房时间</view>
+					<picker name="time" mode="date" value="{{time}}" start="2018-09-01" end="2050-09-01" bindchange="DateChange">
+						<view class="picker">
+							{{time}}
+						</view>
+					</picker>
+				</view>
+				<view class="cu-form-group">
+					<text class="cuIcon-tag lg text-black"></text>
+					<view class="title">验房类型</view>
+					<picker bindchange="homeTypeChange" value="{{index}}" range="{{homeList}}">
+						<view class="picker">
+							{{homeList[index]}}
+						</view>
+					</picker>
+				</view>
+				<van-cell-group>
+					<van-field
+						label="验房面积"
+						left-icon="expand-o"
+						title-width="150rpx"
+						input-align="right"
+						model:value="{{ m2 }}"
+						type="number"
+						placeholder="请输入修改面积"
+						border="{{ false }}"
+						se-button-slot
+						>
+							<van-button slot="button" size="mini" type="primary">
+								平方米
+							</van-button>
+						</van-field>
+				</van-cell-group>
+					<van-cell-group>
+					<van-field
+						label="电话"
+						left-icon="phone-o"
+						title-width="150rpx"
+						input-align="right"
+						model:value="{{ phone }}"
+						type="number"
+						placeholder="请输入修改后的电话"
+						border="{{ false }}"
+					/>
+				</van-cell-group>
+				<van-cell-group>
+					<van-field
+						autosize
+						type="textarea"
+						label="备注"
+						left-icon="smile-comment-o"
+						title-width="120rpx"
+						input-align="right"
+						model:value="{{ remark }}"
+						placeholder="请输入修改内容"
+						border="{{ false }}"
+					/>
+				</van-cell-group>
+				<view class="padding flex flex-direction">
+					<button class="cu-btn bg-red margin-tb-sm lg shadow" bindtap="toEdit">确认修改</button>
+				</view>
+			</form>
+		</view>
+	</view>
+</view>
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

@@ -1,0 +1,64 @@
+page {
+  background-color: white;
+}
+.list .title{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #F3F4F7;
+}
+.list .title .ticket-detail-container{
+  margin-right: 5px;
+}
+.list .title .left{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.list .title .left l-icon{
+  font-size: 18px;
+  font-weight: 200px;
+  margin-left: 10px;
+}
+.list .title .left .text{
+  font-size: 18px;
+  font-weight: 200px;
+  margin-left: 10px;
+}
+.list .text-h3{
+  font-size: 18px;
+  font-weight: 200px;
+  margin-left: 10px;
+  text-align: center;
+}
+.list .content{
+  font-size: 16px;
+  line-height: 20px;
+  margin: 20rpx;
+}
+
+
+.order{
+  display: flex;
+  justify-content: center;
+}
+
+.add{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 10%;
+	right: 5%;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #fff;
+	box-shadow:0px 0px 5px #000;
+}
+.add .container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}

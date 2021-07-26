@@ -1,0 +1,194 @@
+<cu-custom bgColor="bg-diy-red" isCustom="{{true}}">
+
+	<view slot="content">精装房 --- 验房报告</view>
+</cu-custom>
+
+<van-collapse
+  value="{{ activeNum }}"
+  accordion
+  clickable
+  bind:change="onChange"
+  bind:open="onOpen"
+  bind:close="onClose"
+>
+<block wx:for="{{ exquisiteList }}"  wx:key="{{index}}"> 
+
+    <form catchsubmit="formSubmit" catchreset="formReset">
+
+      <van-collapse-item>
+        <view slot="title">
+          <view class="falign-center">
+            <van-icon class="iconfont" class-prefix="icon" name="{{item.icon}}" size="50rpx" color="#aaaaaa" />
+            <text class="text-xl margin-left-sm">{{item.title}}</text>
+          </view>
+        </view>
+        <view slot="value">
+            <view class="falign-center text-green" wx:if="{{ exquisite.list[index].isRule === 'yes' && (exquisite.list[index].index) === index}}">
+              <text class="cuIcon-roundcheckfill lg"></text> 
+              符合标准
+            </view>
+            <view class="falign-center text-red" wx:if="{{ exquisite.list[index].isRule === 'no' && (exquisite.list[index].index) === index }}">
+              <text class="cuIcon-roundclosefill lg"></text> 
+              不符合标准
+            </view>
+        </view>
+        <view class="content">
+          <view class="cu-bar bottom-line">
+            <view class="action">
+              <text class="cuIcon-titles text-green"></text>
+              <text class="text-xl text-bold">是否符合我们的验房标准？</text>
+            </view>
+          </view>
+          <view class="bg-gray my-tips padding">
+            {{item.content}}
+          </view>
+          <view class="cu-item shadow master-centent">
+            <view class="flex master-btn ">
+              <view class="flex-sub {{ isRule=='yes' ? 'bg-green': 'bg-gray'}} shadow light padding-sm margin-xs radius" 
+              bindtap="selectYes" 
+              data-title="{{item.title}}"
+              data-index="{{index}}"
+              data-yes= "yes"
+              data-icon="{{item.icon}}">
+              符合标准</view>
+              <view class="flex-sub {{ isRule=='no' ? 'bg-red': 'bg-gray'}} shadow light padding-sm margin-xs radius" 
+              bindtap="selectNo" 
+              data-title="{{item.title}}"
+              data-index="{{index}}"
+              data-no= "no"
+              data-icon="{{item.icon}}">
+              不符合标准</view>
+            </view>
+          </view>
+          <view class="textarea" wx:if="{{ isRule =='no' }}">
+            <view class="content">
+              <van-cell-group border="{{ false }}">
+                <van-field
+                  wx:if="{{!exquisite.list[index].isRule}}"
+                  type="textarea"
+                  name="evaluation"
+                  placeholder="请按规定书写验房内容，并提交符合规定的图片"
+                  border="{{ false }}"
+                  autosize
+                />
+                <van-field
+                  wx:if="{{exquisite.list[index].isRule}}"
+                  type="textarea"
+                  name="evaluation"
+                  bind:change="onModify"
+                  model:value="{{ exquisite.list[index].evaluation }}"
+                  placeholder="请按规定书写验房内容，并提交符合规定的图片"
+                  border="{{ false }}"
+                  autosize
+                />
+
+              </van-cell-group>
+              <view class="grid col-4 grid-square flex-sub padding">
+                <!-- <block  wx:for="{{exquisite.list[index].imgURL}}"  wx:key="index">
+                  <view class="bg-img">
+                    <image src='{{item}}' mode='aspectFill'></image>
+                    <view class="cu-tag bg-red" data-url="{{item}}" bindtap="DelImgUrl" data-index="{{index}}">
+                      <text class="cuIcon-close"></text>
+                    </view>
+                  </view>
+                </block> -->
+                <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+                  <image  src='{{imgList[index]}}' mode='aspectFill'></image>
+                  <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                    <text class="cuIcon-close"></text>
+                  </view>
+                </view>
+                <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<9}}">
+                  <text class="cuIcon-cameraadd"></text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <block wx:if="{{exquisite.list[index].isRule}}">
+            <view class="light">* 修改需重新上传图片</view>
+          </block>
+          <view class="padding flex flex-direction"  data-index="{{index}}"  wx:if="{{isRule}}">
+            <button class="cu-btn bg-diy-red footer-submit margin-tb-sm round lg shadow" formType="submit" wx:if="{{!isRule === 'no' ^ !exquisite.list[index].isRule && isRule === 'no'}}">
+              <text class="cuIcon-roundcheck"></text>不符合标准
+            </button>
+            <button class="cu-btn bg-diy-green footer-submit margin-tb-sm round lg shadow" catchtap="yesRule" wx:if="{{!isRule === 'yes' ^ !exquisite.list[index].isRule && isRule === 'yes'}}" data-index="{{index}}">
+              <text class="cuIcon-roundcheck"></text> 符合标准
+            </button>
+            <button class="cu-btn bg-diy-blue footer-submit margin-tb-sm round lg shadow" catchtap="modifyRule" wx:if="{{exquisite.list[index].isRule}}" data-index="{{ index }}">
+              <text class="cuIcon-edit"></text> 提交修改
+            </button>
+          </view>
+        </view>
+      </van-collapse-item>
+    </form>
+</block>
+<!-- <view class="add text-xsl" bindtap="showModal"  data-target="addEntry">
+  <text class="cuIcon-add lg"></text>
+</view> -->
+</van-collapse>
+  <view class="padding flex flex-direction margin-top">
+    <button class="cu-btn bg-diy-red footer-submit margin-tb-sm round lg shadow" bindtap="onReport">
+      <text class="cuIcon-roundcheck"></text> 提交 验房报告
+    </button>
+  </view>
+<view class="tips">
+  <view class="title">注意事项</view>
+  <view>1、请按规定书写不符合验房标准的地方</view>
+  <view>2、请务必按照规定上传拍照内容</view>
+  <view>3、如果需要新增验证规则，请在最下方点击加号</view>
+  <view>来着开发者的善良建议</view>
+</view>
+
+
+<view class="cu-modal {{modalName=='addEntry'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">新增验证条目</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="content">
+        <van-cell-group>
+        <van-field
+          model:value="{{ addTitle }}"
+          label="检查项目"
+          placeholder="请输入需要检查项目的标题"
+          border="{{ true }}"
+        />
+      </van-cell-group>
+
+      <van-cell-group border="{{ false }}">
+        <van-field
+          type="textarea"
+          model:value="{{ evaluation }}"
+          placeholder="请按规定书写验房内容，并提交符合规定的图片"
+          border="{{ false }}"
+          autosize
+        />
+      </van-cell-group>
+      <view class="grid col-4 grid-square flex-sub padding">
+        <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+          <image src='{{imgList[index]}}' mode='aspectFill'></image>
+          <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+            <text class="cuIcon-close"></text>
+          </view>
+        </view>
+        <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<9}}">
+          <text class="cuIcon-cameraadd"></text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub text-gray solid-left" bindtap="hideModal">取消</view>
+      <view class="action margin-0 flex-sub text-red  solid-left" bindtap="editEntry">确定</view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

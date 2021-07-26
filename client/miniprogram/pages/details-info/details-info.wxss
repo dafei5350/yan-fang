@@ -1,0 +1,100 @@
+
+.no-from image{
+  width: 250rpx;
+  height: 200rpx;
+}
+.no-from p{
+  font-size: xx-small;
+  color: #888888;
+}
+.cu-card>.cu-item {
+  margin: 15rpx;
+}
+.info{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10rpx;
+}
+.text-img{
+  width: 230rpx;
+  height: 230rpx;
+  margin: 1px;
+}
+
+.card-footer{
+  height: 75rpx;
+  display: flex;  
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10rpx;
+}
+.footer-icon{
+  width: 250rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.loupan{
+  width: 72%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.footer-tips{
+  margin-bottom: 50rpx;
+  display: flex;
+  justify-content: center;
+}
+.list .title{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #F3F4F7;
+}
+.list .title .ticket-detail-container{
+  margin-right: 5px;
+}
+.list .title .left{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.list .title .left l-icon{
+  font-size: 18px;
+  font-weight: 200px;
+  margin-left: 10px;
+}
+.list .title .left .text{
+  font-size: 18px;
+  font-weight: 200px;
+  margin-left: 10px;
+}
+.list .text-h3{
+  font-size: 18px;
+  font-weight: 200px;
+  margin-left: 10px;
+  text-align: center;
+}
+.list .content{
+  font-size: 16px;
+  line-height: 20px;
+  margin: 20rpx;
+}
+
+.flooter-logo{
+  width: 100%;
+  margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  position: absolute;
+  bottom: 20px;
+}
+.flooter-logo image{
+	width: 150px;
+	height: 70px;
+	opacity:0.5;
+}

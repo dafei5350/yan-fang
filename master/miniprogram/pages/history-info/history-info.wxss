@@ -1,0 +1,36 @@
+.text-content{
+  width: 100%;
+  display: flex;
+}
+.text-content .cu-form-group view{
+  width: 180rpx;
+  text-align: left;
+}
+.order{
+  margin: 10rpx 15rpx;
+  border-radius: 15px;
+}
+.order-centent{
+  padding: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+.top-line{
+  border-top: 1rpx solid #eee;
+}
+.box-line{
+  border-bottom: 3rpx solid #F6F6F6;
+}
+.dialog-fenpei{
+  height: 800rpx;
+}
+.right-img {
+  width: 80rpx;
+  height: 80rpx;
+}
+.icon-left{
+  margin-right: 15rpx;
+}
+.margin-bottom{
+  margin-bottom: 150rpx;
+}

@@ -1,0 +1,84 @@
+<cu-custom bgColor="bg-diy-red">
+  <view slot="content">匠人验房</view>
+</cu-custom>
+
+<image class="top-bg" src="https://cdn.dafei110.cn/config/bg-img.png">
+</image>
+
+<view class="login-card shadow">
+  <image class="logo" src="https://cdn.dafei110.cn/config/logo.png">
+  </image>
+  <form class="form" bindsubmit="loging">
+    <!-- <view class="cu-form-group">
+      <view class="title">身份</view>
+      <picker bindchange="identityChange" value="{{index}}" range="{{identity}}">
+        <view class="picker">{{identity[index]}}</view>
+      </picker>
+    </view> -->
+    
+    <van-tabs type="card"
+      class="margin-sm"
+      animated
+      active="{{ identity }}" 
+      id="tabs" 
+      color="#42bfac"
+      bind:change="onChange">
+      <van-tab title="管理员" name="admin"></van-tab>
+      <van-tab title="验房师" name="master"></van-tab>
+    </van-tabs>
+    <van-field
+      left-icon="manager-o"
+      label="账号"
+      model:value="{{ user }}"
+      placeholder="请输入您的账号"
+      border="{{ true }}"
+      title-width="70rpx"
+    />
+    <van-cell-group>
+      <van-field
+        left-icon="other-pay"
+        label="密码"
+        type="{{ onPassword }}"
+        model:value="{{ password }}"
+        placeholder="请输入您的密码"
+        border="{{ false }}"
+        title-width="70rpx"
+      >
+        <van-icon slot="icon" wx:if="{{onPassword == 'text'}}" bind:click="closedEye" size="25" name="closed-eye" />
+        <van-icon slot="icon" wx:if="{{onPassword == 'password'}}" bind:click="openEye" size="25" name="eye-o" />
+      </van-field>
+    </van-cell-group>
+    <view class="remember">
+      <van-checkbox 
+        value="{{ remember }}" 
+        bind:change="onRemember"
+        checked-color="#2ecc71"
+        >
+        记住密码
+      </van-checkbox>
+    </view>
+    <view class="padding flex flex-direction">
+      <button class="cu-btn bg-diy-red shadow lg" form-type="submit">登入</button>
+    </view>
+  </form>
+  <!-- <text class="text-red">↓↓↓ 临时功能 ↓↓↓</text>
+  <form class="form" bindsubmit="addUser">
+    <view class="cu-form-group margin-top">
+      <view class="title">账号</view>
+      <input type="text" name="user" placeholder="请输入您的账号"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">密码</view>
+      <input type="password" name="password" placeholder="请输入您的密码"></input>
+    </view>
+    <view class="padding flex flex-direction">
+      <button class="cu-btn bg-diy-red shadow lg" form-type="submit">添加管理员</button>
+    </view>
+  </form> -->
+</view>
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

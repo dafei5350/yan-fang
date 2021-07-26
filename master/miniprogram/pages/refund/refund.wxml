@@ -1,0 +1,57 @@
+<cu-custom bgColor="bg-diy-red" isCustom="{{true}}">
+	<view slot="content">申请退款</view>
+</cu-custom>
+
+<van-tabs id="tabs" animated swipeable active="{{ active }}" bind:change="onCollapse">
+  <van-tab title="未处理" info="{{untreatedList.length}}" name="untreated">
+		<block wx:for="{{untreatedList}}" wx:key="index">
+			<view class="order" bindtap="toRefundInfo" data-id="{{item._id}}">
+				<view class="bg-white radius-index radius">
+					<view class="cu-bar box-line">
+						<view class="action">
+							<text class="cuIcon-titles text-red"></text>
+							<text class="text-xl text-bold">{{item.xiaoqu}}</text>
+						</view>
+					</view>
+					<view class="flex  my-radius shadow-lg">
+						<view class='text-content order-centent'>
+							<text>联系人： {{item.name}}</text>
+							<text>联系电话： {{item.phone}}</text>
+							<text>房屋类型： {{item.homeType}}</text>
+							<text>申请退款时间： {{item.refundTime}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</block>
+  </van-tab>
+  <van-tab title="已处理" name="processed" info="{{processedList.length}}" catchtap="getProcessedList">
+		<block wx:for="{{processedList}}" wx:key="index">
+			<view class="order" bindtap="toRefundInfo" data-id="{{item._id}}">
+				<view class="bg-white radius-index radius">
+					<view class="cu-bar box-line">
+						<view class="action">
+							<text class="cuIcon-titles text-red"></text>
+							<text class="text-xl text-bold">{{item.xiaoqu}}</text>
+						</view>
+					</view>
+					<view class="flex  my-radius shadow-lg">
+						<view class='text-content order-centent'>
+							<text>联系人： {{item.name}}</text>
+							<text>联系电话： {{item.phone}}</text>
+							<text>房屋类型： {{item.homeType}}</text>
+							<text>申请退款时间： {{item.refundTime}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</block>
+  </van-tab>
+</van-tabs>
+
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

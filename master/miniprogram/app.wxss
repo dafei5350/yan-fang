@@ -1,0 +1,22 @@
+@import "/style/main.wxss";
+@import "/style/icon.wxss";
+@import "/style/iconali.wxss";
+
+.tips{
+	display: flex;
+	flex-direction: column;
+	margin: 10px 15rpx;
+	background-color: #FFEAC6;
+	border-radius: 10px;
+	color: #CD5107;
+	padding: 25rpx;
+	margin-bottom: 50px;
+}
+.tips .title{
+	text-align: center;
+	margin: 10rpx 0;
+}
+.tips view:last-child{
+	text-align: right;
+	margin: 15rpx 15rpx;
+}

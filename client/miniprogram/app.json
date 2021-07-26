@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/order-form/order-form",
+    "pages/report/report",
+    "pages/standard/standard",
+    "pages/range/range",
+    "pages/report-info/report-info",
+    "pages/order-info/order-info",
+    "pages/comment/comment",
+    "pages/details-info/details-info"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "匠人验房",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "custom": false,
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "匠人验房",
+        "iconPath": "./assets/img/tabbar/index0.png",
+        "selectedIconPath": "./assets/img/tabbar/index1.png"
+      },
+      {
+        "pagePath": "pages/order-form/order-form",
+        "text": "预约验房",
+        "iconPath": "./assets/img/tabbar/yan0.png",
+        "selectedIconPath": "./assets/img/tabbar/yan1.png"
+      },
+      {
+        "pagePath": "pages/report/report",
+        "text": "验房报告",
+        "iconPath": "./assets/img/tabbar/report0.png",
+        "selectedIconPath": "./assets/img/tabbar/report1.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "cu-custom": "/components/cu-custom/cu-custom",
+    "kefu": "/components/kefu/kefu",
+    "van-button": "@vant/weapp/button/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

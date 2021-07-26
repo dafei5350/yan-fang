@@ -1,0 +1,48 @@
+<cu-custom bgColor="bg-diy-red" isCustom="{{true}}">
+
+	<view slot="content">修改个人信息</view>
+</cu-custom>
+
+<form catchsubmit="formSubmit">
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			头像上传
+		</view>
+		<view class="action">
+			请务必上传真人头像
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub justify-center">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length === 0}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+	<view class="cu-form-group margin-top">
+		<view class="title">姓名</view>
+		<input name="name" placeholder="请输入验房师姓名" value="{{name}}"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">电话</view>
+		<input name="phone" placeholder="请输入验房师电话" value="{{phone}}"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">密码</view>
+		<input name="pwd" placeholder="请输入验房师密码" value="{{pwd}}"></input>
+	</view>
+	<view class="padding flex flex-direction">
+		<button class="cu-btn bg-diy-red margin-tb-sm lg shadow" formType="submit">立刻修改</button>
+	</view>
+</form>
+<view class="tips">
+	<view class="title">注意事项</view>
+	<view>1、您的的信息会出现在客户的订单列表里，为了良好的使用体验，请务必上传您的真实照片，填写真实信息</view>
+	<view>来自开发者的善良建议</view>
+</view>

@@ -1,0 +1,65 @@
+<cu-custom bgColor="bg-diy-red" isCustom="{{true}}">
+
+	<view slot="content">新增验房师</view>
+</cu-custom>
+
+<form catchsubmit="formSubmit">
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			头像上传
+		</view>
+		<view class="action">
+			请务必上传真人头像
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub justify-center">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length === 0}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+	<view class="cu-form-group margin-top">
+		<view class="title">姓名</view>
+		<input name="name" placeholder="请输入验房师姓名" value="{{name}}"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">电话</view>
+		<input name="phone" placeholder="请输入验房师电话" type="number" bindinput="onPhone" value="{{phone}}"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">账号</view>
+		<input name="account" placeholder="请输入验房师账号" value="{{account}}"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">密码</view>
+		<input name="pwd" placeholder="请输入验房师密码" value="{{pwd}}"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">身份</view>
+		<input name="Identity" value="验房师" disabled></input>
+	</view>
+	<view class="padding flex flex-direction">
+		<button class="cu-btn bg-diy-red margin-tb-sm lg shadow" formType="submit">立刻添加</button>
+	</view>
+</form>
+<view class="tips">
+	<view class="title">注意事项</view>
+	<view>1、请保持每个验房师傅的账号唯一性，不允许重复账号出现</view>
+	<view>2、验房师傅的信息会出现在客户的订单列表里，为了良好的使用体验，请务必上传验房师傅的真人头像，填写真实信息</view>
+	<view>3、每个验房师只能看到平台分配给自己的订单，不是自己的订单无法看到</view>
+	<view>4、验房师的权限：查看自己的订单和处理的历史订单、修改自己的个人信息和账号密码</view>
+	<view>来自开发者的善良建议</view>
+</view>
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

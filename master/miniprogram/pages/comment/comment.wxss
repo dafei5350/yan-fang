@@ -1,0 +1,73 @@
+.suspend{
+	width: 110rpx;
+	height: 110rpx;
+	border-radius: 50%;
+	position: fixed;
+	bottom: 150rpx;
+	right: 50rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.virtual{
+  width: 70rpx;
+  height: 70rpx;
+  position: absolute;
+  z-index: 10;
+  /* top: 15rpx; */
+}
+.cu-card>.cu-item {
+  margin: 15rpx;
+}
+.info{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10rpx;
+}
+.is-report{
+  background-color: #F7F7F7;
+  border-radius: 15rpx;
+  margin: 10rpx 25rpx;
+  padding: 5rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.is-report .icon-row{
+  display: flex;
+  align-items: center;
+  margin-left: 15rpx;
+}
+.text-img{
+  width: 230rpx;
+  height: 230rpx;
+  margin: 1px;
+}
+.card-footer{
+  height: 75rpx;
+  display: flex;  
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10rpx;
+}
+.footer-icon{
+  width: 250rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.loupan{
+  width: 65%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.footer-tips{
+  margin-bottom: 50rpx;
+  display: flex;
+  justify-content: center;
+}
+.pass{
+	width: 90rpx;
+	height: 90rpx;
+}

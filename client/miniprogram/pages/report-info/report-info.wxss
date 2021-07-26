@@ -1,0 +1,24 @@
+.container{
+ margin: 15rpx;
+ border: 1rpx solid #F6F6F6; 
+ border-radius: 15rpx;
+}
+.right-icon{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.info{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10rpx;
+}
+.text-img{
+  width: 230rpx;
+  height: 230rpx;
+  margin: 1px;
+}
+.bg-green.light {
+	color: var(--black);
+	background-color: var(--greenLight);
+}

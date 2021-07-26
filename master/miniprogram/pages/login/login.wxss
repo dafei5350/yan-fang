@@ -1,0 +1,33 @@
+.login-card{
+  width: 96%;
+  border-radius: 15rpx;
+  margin: 0 2% 15rpx 2%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 35%;
+}
+.top-bg{
+  position: absolute;
+  top: 15%;
+  width: 96%;
+  left: 2%;
+  height: 350rpx;
+
+}
+.remember{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20rpx;
+  font-size: 35rpx;
+}
+.login-card .logo{
+  width: 400rpx;
+  height: 250rpx;
+}
+.login-card .form{
+  width: 100%;
+  margin-bottom: 10px;
+}

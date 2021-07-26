@@ -1,0 +1,113 @@
+<cu-custom bgColor="bg-diy-red" isCustom="{{true}}">
+
+	<view slot="content">评论管理</view>
+</cu-custom>
+
+
+<van-tabs animated swipeable active="{{ active }}"  bind:change="onChange" id="tabs">
+  <van-tab title="未审核" name="unread">
+      <block wx:for="{{ commentList }}" wx:key="index">
+        <view class="cu-card dynamic ">
+          <view class="cu-item shadow" >
+            <image wx:if="{{item.virtual}}" class="virtual" src="../../assets/virtual.png" mode="aspectFit" lazy-load="false" />
+              
+            <view class="cu-list menu-avatar">
+              <view class="cu-item">
+                <image class="cu-avatar round lg"
+                  src="{{ item.avatarUrl || 'https://cdn.dafei110.cn/config/avatar.jpg' }}" />
+                <view class="content flex-sub">
+                  <view>{{ item.nickName || '某网友'}}</view>
+                  <view class="text-gray text-sm flex justify-between">
+                    {{ item.createTime }}
+                  </view>
+                </view>
+                <view class="active margin-right-sm">
+                  <button class="cu-btn bg-green margin-right-sm" bindtap="onPass" data-commentid="{{ item._id }}">通过</button>
+                  <button class="cu-btn bg-red" bindtap="onDel" data-commentid="{{ item._id }}">删除</button>
+                </view>
+              </view>
+            </view>
+            <view class="text-content">
+              {{ item.evaluation }}
+            </view>
+            <!-- <view class="is-report"  wx:if="{{ item.shareOrder }}" wx:key="index">
+              <view class="icon-row" catchtap="toReportInfo" data-orderid="{{ item.orderId}}" data-type="{{item.homeType}}">
+                <l-icon name='anquan' size="50" l-class='iconfont' color='#42D3AD' />
+                <text class="text-red">{{ item.homeType}} | 验房报告</text>
+              </view>
+              <text class="cuIcon-right lg text-gray"></text>
+            </view> -->
+            <view class="grid flex-sub info">
+              <block wx:for="{{ item.imgList }}" wx:key="{{index}}">
+                <image class="text-img" src="{{ item }}" data-img="{{item}}" catchtap="viewImg"></image>
+              </block>
+            </view>
+            <view class="text-gray text-sm text-right card-footer">
+              <view class="loupan text-left" wx:if="{{item.xiaoqu}}">
+                
+                <view class="cu-tag bg-grey light round">楼盘：{{ item.xiaoqu }}</view>
+              </view>
+              <view class="footer-icon ">
+                <text class="cuIcon-attentionfill text-xl margin-lr-xs">{{item.watch ||  0}}</text>
+                <text class="cuIcon-appreciatefill text-xl margin-lr-xs text-red">{{item.like || 0}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+  </van-tab>
+  <van-tab title="已审核" name="read">
+      <block wx:for="{{ readList }}" wx:key="index">
+        <view class="cu-card dynamic ">
+          <view class="cu-item shadow" >
+            <image wx:if="{{item.virtual}}" class="virtual" src="../../assets/virtual.png" mode="aspectFit" lazy-load="false" />
+
+            <view class="cu-list menu-avatar">
+              <view class="cu-item">
+                <image class="cu-avatar round lg"
+                  src="{{ item.avatarUrl || 'https://cdn.dafei110.cn/config/avatar.jpg' }}" />
+                <view class="content flex-sub">
+                  <view>{{ item.nickName || '某网友'}}</view>
+                  <view class="text-gray text-sm flex justify-between">
+                    {{ item.createTime }}
+                  </view>
+                </view>
+                <view class="active margin-right-sm">
+                  <button class="cu-btn bg-red" bindtap="onDelPass" data-commentid="{{ item._id }}">删除</button>
+                </view>
+              </view>
+            </view>
+            <view class="text-content">
+              {{ item.evaluation }}
+            </view>
+
+            <view class="grid flex-sub info">
+              <block wx:for="{{ item.imgList }}" wx:key="{{index}}">
+                <image class="text-img" src="{{ item }}" data-img="{{item}}" catchtap="viewImg"></image>
+              </block>
+            </view>
+            <view class="text-gray text-sm text-right card-footer">
+              <view class="loupan text-left" wx:if="{{item.xiaoqu}}">
+                
+                <view class="cu-tag bg-grey light round">楼盘：{{ item.xiaoqu }}</view>
+              </view>
+              <view class="footer-icon ">
+                <text class="cuIcon-attentionfill text-xl margin-lr-xs">{{item.watch}}</text>
+                <text class="cuIcon-appreciatefill text-xl margin-lr-xs text-red" catchtap="onLike" data-id="{{ item._id}}" data-index="{{index}}">{{item.like}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+  </van-tab>
+</van-tabs>
+
+<view class="suspend text-sl bg-green light  text-green shaow" bindtap="toAddComment">
+  <text class="cuIcon-add"></text>
+</view>
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

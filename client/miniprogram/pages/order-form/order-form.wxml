@@ -1,0 +1,157 @@
+<cu-custom bgColor="bg-diy-red"><view slot="content">申请验房</view></cu-custom>
+<view class="container">
+  <view class="from-cointainer">
+    <form catchsubmit="paySubmit" name="payForm">
+      <view class="cu-form-group">
+        <view class="title">
+          <text class="cuIcon-location lg text-black"></text>
+          服务位置
+        </view>
+        <picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker" name="address">
+            {{region[0]}}，{{region[1]}}，{{region[2]}}
+          </view>
+        </picker>
+      </view>
+      <!-- <view class="cu-form-group">
+        <view class="title">
+          <text class="cuIcon-time lg text-black"></text>
+          验房时间</view>
+        <picker name="time" mode="date" value="{{date}}" start="2018-09-01" end="2050-09-01" bindchange="DateChange">
+          <view class="picker">
+            {{date}}
+          </view>
+        </picker>
+      </view> -->
+      <view class="cu-form-group solid-bottom">
+        <text class="cuIcon-tag lg text-black"></text>
+        <view class="title">验房类型</view>
+        <picker bindchange="homeTypeChange" value="{{index}}" range="{{homeList}}">
+          <view class="picker">
+            {{homeList[index]}}
+          </view>
+        </picker>
+      </view>
+        <van-cell 
+          title="验房时间" 
+          value="{{ date }}" 
+          bind:click="onDisplay" />
+      <van-calendar 
+        show="{{ show }}"
+        formatter="{{ formatter }}"
+        title="选择您的验房时间"
+        confirm-text="确定"
+        bind:close="onClose" 
+        position="top"
+        bind:confirm="onConfirm" />
+
+        <van-cell-group>
+          <van-field
+            label="小区名称"
+            left-icon="wap-home-o"
+            title-width="150rpx"
+            input-align="right"
+            model:value="{{ xiaoqu }}"
+            placeholder="请输入您的小区名称"
+            border="{{ false }}"
+          />
+        </van-cell-group>
+
+      <van-cell-group>
+        <van-field
+          label="验房面积"
+          left-icon="expand-o"
+          title-width="150rpx"
+          input-align="right"
+          model:value="{{ m2 }}"
+          type="number"
+          bind:input="onNum"
+          placeholder="请输入您的房屋面积"
+          border="{{ false }}"
+          se-button-slot
+          >
+            <van-button slot="button" size="mini" type="primary">
+              平方米
+            </van-button>
+          </van-field>
+      </van-cell-group>
+
+      <van-cell-group>
+        <van-field
+          label="详细地址"
+          left-icon="home-o"
+          title-width="150rpx"
+          input-align="right"
+          model:value="{{ addressInfo }}"
+          placeholder="请输入楼号+房号"
+          border="{{ false }}"
+        />
+      </van-cell-group>
+      <van-cell-group>
+        <van-field
+          label="姓名"
+          left-icon="user-o"
+          title-width="150rpx"
+          input-align="right"
+          model:value="{{ name }}"
+          placeholder="请输入您的姓名"
+          border="{{ false }}"
+        />
+      </van-cell-group>
+      <van-cell-group>
+        <van-field
+          label="电话"
+          left-icon="phone-o"
+          title-width="150rpx"
+          input-align="right"
+          model:value="{{ phone }}"
+          bind:input="onNumPhone"
+          type="number"
+          placeholder="请输入您的联系电话"
+          border="{{ false }}"
+        />
+      </van-cell-group>
+      <van-cell-group>
+        <van-field
+          autosize
+          type="textarea"
+          label="备注"
+          left-icon="smile-comment-o"
+          title-width="120rpx"
+          input-align="right"
+          model:value="{{ remark }}"
+          placeholder="需要我们特别注意的事情..."
+          border="{{ false }}"
+        />
+      </van-cell-group>
+      <view class="padding flex flex-direction">
+        <button class="cu-btn bg-diy-red margin-tb-sm lg" formType="submit">验房费用 ¥ {{payForm.money / 100}} 元起</button>
+        <!-- <button class="cu-btn bg-diy-red margin-tb-sm lg" formType="submit" bindtap="requestSubscribe">立即预约</button> -->
+      </view>
+    </form>
+  </view>
+  <view class="tips">
+    <view class="title">下单须知</view>
+    <view>1、收费面积：验房计算面积按照建筑面积计算，如赠送面积大于10㎡以上，按实际面积（建筑面积+增送面积）收取。</view>
+    <view>2、验房业主请至少提前1天预约，下单前务必联系客服或电话确认验房时间。</view>
+    <view>3、匠人验房师验房现场统一着装，带匠人验房统一配置的工具箱及工具，请业主悉知，谨防假冒！</view>
+    <view>感谢对匠人验房的关注，祝业主们收房顺利，生活愉快！</view>
+  </view>
+
+</view>
+
+<kefu></kefu>
+<view class="flooter-logo">
+  <image src="https://cdn.dafei110.cn/config/logo.png"></image>
+</view>
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/img/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>
+
+
+<!-- 登入弹窗 
+<l-dialog show="{{!isLogin}}" type="confirm" bind:linconfirm="getUserProfile" title="登入" content="您还没有登入，请求登入" /> 
+-->

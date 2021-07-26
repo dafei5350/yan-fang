@@ -1,0 +1,50 @@
+<cu-custom bgColor="bg-diy-red" isCustom="{{true}}">
+
+	<view slot="content">验收标准</view>
+</cu-custom>
+<van-tabs animated swipeable active="{{active}}" id="tabs"  bind:click="onTab">
+  <van-tab title="精装房" name="exquisite">
+    <van-collapse 
+      accordion
+      value="{{ activeNames }}" 
+      bind:change="onCollapse">
+      <block wx:for="{{ exquisiteList }}" wx:key="{{index}}">
+        <van-collapse-item name="{{index}}">
+          <view slot="title">
+            <view class="falign-center">
+              <van-icon class="iconfont" class-prefix="icon" name="{{item.icon}}" size="50rpx" color="#aaaaaa" />
+              <text class="text-xl margin-left-sm">{{item.title}}</text>
+            </view>
+          </view>
+          <view class="content">{{item.content}}</view>
+        </van-collapse-item>
+      </block>
+    </van-collapse>
+  </van-tab>
+  <van-tab title="毛坯房" name="rough">
+    <van-collapse accordion value="{{ activeNames }}" bind:change="onCollapse">
+      <block wx:for="{{ roughList }}" wx:key="{{index}}">
+        <van-collapse-item name="{{index}}">
+          <view slot="title">
+            <view class="falign-center">
+              <van-icon class="iconfont" class-prefix="icon" name="{{item.icon}}" size="50rpx" color="#aaaaaa" />
+              <text class="text-xl margin-left-sm">{{item.title}}</text>
+            </view>
+          </view>
+          <view class="content">{{item.content}}</view>
+        </van-collapse-item>
+      </block>
+    </van-collapse>
+  </van-tab>
+</van-tabs>
+
+<view class="padding flex flex-direction">
+	<button class="cu-btn bg-red margin-tb-sm lg" bindtap="toOrderForm">保存修改</button>
+</view>
+
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

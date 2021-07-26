@@ -1,0 +1,48 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "name": "服务评价",
+          "pathName": "pages/comment/comment",
+          "query": "orderId=undefined&masterId=b00064a760d03f062199e9d40a099a7b",
+          "scene": null
+        },
+        {
+          "name": "验房报告",
+          "pathName": "pages/report-info/report-info",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "评价详情",
+          "pathName": "pages/details-info/details-info",
+          "query": "id=cbddf0af60d7013412c6af1c6c86b87f",
+          "scene": null
+        },
+        {
+          "name": "订单详情",
+          "pathName": "pages/order-info/order-info",
+          "query": "id=b00064a760dae5d4239a73bd49199b1e",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

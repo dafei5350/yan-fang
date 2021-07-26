@@ -1,0 +1,28 @@
+<cu-custom bgColor="bg-diy-red" isCustom="{{true}}">
+
+	<view slot="content">验房师管理</view>
+</cu-custom>
+<block wx:for="{{masterList}}" wx:key="key">
+	<view class="card" bindtap="toScore" data-id="{{item._id}}">
+		<view class="row-img">
+			<image src="{{item.avatar}}" mode="scaleToFill" alt="" />
+		</view>
+		<view class="row-info">
+			<text>姓名： {{item.name}}</text>
+			<text>电话：{{item.phone}}</text>
+			<text>账号：{{item.account}}</text>
+			<text>密码：{{item.pwd}}</text>
+			<text>创建时间：{{ item.createTime}}</text>
+			<button class="cu-btn block line-red" catchtap="delMaster" data-id="{{item._id}}">
+    		<text class="cuIcon-deletefill margin-right-sm"></text> 删除账号
+			</button>
+		</view>
+	</view>
+</block>
+
+
+<!-- 加载 -->
+<view class='cu-load load-modal' wx:if="{{loading}}">
+  <image src='../../assets/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

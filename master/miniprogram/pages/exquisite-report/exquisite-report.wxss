@@ -1,0 +1,70 @@
+.textarea{
+  display: flex;
+  justify-content: center;
+}
+.textarea .content{
+  width: 95%;
+  height: auto;
+  border-radius: 15rpx;
+  background-color: #F9F9F9;
+  margin-bottom: 25rpx;
+}
+.van-field__control--textarea{
+  padding: 5rpx !important;
+  height: 200rpx !important;
+}
+.van-cell{
+  /* padding: 5rpx !important;
+  height: 200rpx !important; */
+  border-top-right-radius: 15rpx !important;
+  border-top-left-radius: 15rpx !important;
+  background-color: #F9F9F9 !important;
+}
+.van-field__control{
+  /* min-height: 200rpx !important; */
+  border-radius: 15rpx !important;
+  background-color: #F9F9F9 !important;
+  border-style: none !important;
+}
+.solids::after{
+  border-radius: 15rpx;
+  border: 5rpx dashed #D4D4D4;
+}
+.my-tips{
+  width: 95%;
+  margin: 5rpx auto;
+  border-radius: 15rpx;
+}
+.master-centent{
+  display: flex;
+  justify-content: center;
+}
+.master-btn{
+  width: 95%;
+  margin: 15rpx 5rpx;
+}
+.master-tag{
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.footer-submit{
+  width: 75%;
+  margin: 15rpx auto;
+  display: flex;
+  justify-content: center;
+}
+.footer-submit text{
+  margin-right: 25rpx;
+}
+.add{
+  color: #ced6e0;
+  width: 98%;
+  height: 120rpx;
+  margin: 15rpx 1%;
+  border-radius: 15rpx;
+  border: 5rpx dashed #ced6e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity:0.5;
+}

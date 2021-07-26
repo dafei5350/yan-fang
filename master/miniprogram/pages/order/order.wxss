@@ -1,0 +1,16 @@
+.order{
+  margin: 10rpx 15rpx;
+  border-radius: 10px;
+}
+.box-line{
+  border-bottom: 3rpx solid #F6F6F6;
+}
+.order-centent{
+  padding: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+.empty{
+  height: 600rpx;
+  overflow: hidden;
+}

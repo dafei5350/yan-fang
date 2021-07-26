@@ -1,0 +1,179 @@
+
+<cu-custom bgColor="bg-diy-red"><view slot="content">匠人验房</view></cu-custom>
+<swiper class="screen-swiper" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item class="swiper-items" wx:for="{{swiperList}}" wx:key="id" bindtap="toSwiperPath" data-swiper="{{item.pathId}}">
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover"
+      wx:if="{{item.type=='video'}}" wx:key></video>
+  </swiper-item>
+</swiper>
+
+<view class="container">
+  <view class="row-main">
+    <view class="standard">
+      <view class="items" bindtap="toStandard">
+        <van-icon class="iconfont" class-prefix="icon" name="zhuanyebaozhangfuwu" size="90rpx" color="#ffffff" /> 
+        <div class="block">
+          <h2>验收标准</h2>
+          <view>项目及标准</view>
+        </div>
+      </view>
+      <!-- <view class="items" bindtap="toRange"> -->
+      <view class="items" bindtap="toReport">
+        <van-icon class="iconfont" class-prefix="icon" name="zhaozhuanye" size="90rpx" color="#ffffff" /> 
+        <div class="block">
+          <h2>验房报告</h2>
+          <view>验房一步搞定</view>
+        </div>
+      </view>
+    </view>
+    <view class="form" bindtap="toOrderForm">
+      <van-icon class="iconfont" class-prefix="icon" name="yanzheng" size="150rpx" color="#ffffff" /> 
+      <view>
+        <h2>预约验房</h2>
+        <p>精装房 / 毛坯房</p>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="card bg-white">
+  <view class="cu-bar solid-bottom">
+    <view class="action">
+      <image class="cu-avatar round" src="https://cdn.dafei110.cn/config/avatar.jpg"></image>
+      您身边的验房专家
+    </view>
+    <view class="action" bindtap="toReport">
+      <text>服务评价</text>
+      <text class="cuIcon-right lg text-gray"></text>
+    </view>
+  </view>
+  <view class="content">
+    <view class="item">
+      <view class="text">
+        <view>专业服务</view>
+        <view>专业师傅更放心</view>
+      </view>
+      <view class="icon">
+        <van-icon class="iconfont" class-prefix="icon" name="iconfontdianshangbisai-icon-" size="85rpx" color="#6E7DF6" />
+      </view>
+    </view>
+    <view class="item">
+      <view class="text">
+        <view>收费透明</view>
+        <view>标准收费无推销</view>
+      </view>
+      <view class="icon">
+        <van-icon class="iconfont" class-prefix="icon" name="ico_jiankangmenzhen_menzhenshoufeichaxun" size="75rpx" color="#FA544C" />
+      </view>
+    </view>
+    <view class="item">
+      <view class="text">
+        <view>快捷省心</view>
+        <view>验房报告随时看</view>
+      </view>
+      <view class="icon">
+        <van-icon class="iconfont" class-prefix="icon" name="baogao" size="75rpx" color="#FA544C" />
+      </view>
+    </view>
+    <view class="item">
+      <view class="text">
+        <view>平台保障</view>
+        <view>平台担保更安全</view>
+      </view>
+      <view class="icon">
+        <van-icon class="iconfont" class-prefix="icon" name="zhijianjiluguanli" size="75rpx" color="#6E7DF6" />
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="container">
+  <view class="lc-row">
+    <view class="title  padding">
+      <text class="text-green text-bold text-xl">验房流程</text>
+    </view>
+    <view class="icon-text">
+      <view class="cu-steps steps-arrow">
+        <view class="cu-item">
+          <van-icon class="iconfont" class-prefix="icon" name="yuyue" size="75rpx" color="#39b54a" />
+          线上预约
+        </view>
+        <view class="cu-item">
+          <van-icon class="iconfont" class-prefix="icon" name="reserve" size="75rpx" color="#39b54a" />
+          平台派单
+        </view>
+        <view class="cu-item">
+          <van-icon class="iconfont" class-prefix="icon" name="baogao" size="75rpx" color="#39b54a" />
+          师傅验收
+        </view>
+        <view class="cu-item">
+          <van-icon class="iconfont" class-prefix="icon" name="yanzheng" size="75rpx" color="#39b54a" />
+          确认报告
+        </view>
+      </view>
+      <view class="feihua">
+        <view class="title padding">
+          <text class="text-green text-bold text-xl ">五重保障 验房更放心</text>
+        </view>
+        <view class="content">
+          <view class="item">
+            <van-icon class="iconfont" class-prefix="icon" name="yuyue" size="85rpx" color="#96e6a1" />
+            <view class="text bg-diy-yellow ligth my-radius">
+              <text class="text-white text-bold text-xl margin-right-xs">时长保证</text>
+              <text class="text-white margin-left-xs"> 服务不低于一小时 全面不漏项</text>
+            </view>
+          </view>
+
+          <view class="item margin-top-xs">
+            <van-icon class="iconfont" class-prefix="icon" name="zhuanyelietou" size="85rpx" color="#96e6a1" />
+            <view class="text bg-diy-yellow ligth my-radius">
+              <text class="text-white text-bold text-xl margin-right-xs">专业师傅</text>
+              <text class="text-white margin-left-xs">师傅统一持证上岗 专业更安心</text>
+            </view>
+          </view>
+
+          <view class="item margin-top-xs">
+            <van-icon class="iconfont" class-prefix="icon" name="anquanbaozhangfuwufanweiluoji" size="85rpx" color="#96e6a1" />
+            <view class="text bg-diy-yellow ligth my-radius">
+              <text class="text-white text-bold text-xl margin-right-xs">规范流程</text>
+              <text class="text-white margin-left-xs">规范化的验房流程 验房有保障</text>
+            </view>
+          </view>
+
+          <view class="item margin-top-xs">
+            <van-icon class="iconfont" class-prefix="icon" name="zhuanyebaozhangfuwu" size="85rpx" color="#96e6a1" />
+            <view class="text bg-diy-yellow ligth my-radius">
+              <text class="text-white text-bold text-xl margin-right-xs">贴心服务</text>
+              <text class="text-white margin-left-xs">随时听从您的调遣 服务更贴心</text>
+            </view>
+          </view>
+
+          <view class="item margin-top-xs">
+            <van-icon class="iconfont" class-prefix="icon" name="anfangguanli" size="85rpx" color="#96e6a1" />
+            <view class="text bg-diy-yellow ligth my-radius">
+              <text class="text-white text-bold text-xl margin-right-xs">安全保证</text>
+              <text class="text-white margin-left-xs">正规平台监管运营 验房更放心</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="zizhi margin-top-xl">
+        <view class="title padding text-conter">
+          <text class="text-green text-bold text-xl">专业资质 实力保证</text>
+        </view>
+        <image class="zhengshu-img" src=""></image> //自定义  证书
+        <image class="zizhi-img" src=""></image>    //自定义  营业许可证
+
+      </view>
+
+    </view>
+  </view>
+
+</view>
+
+<kefu></kefu>
+<view class="flooter-logo">
+  <image src="https://cdn.dafei110.cn/config/logo.png"></image>
+</view>
