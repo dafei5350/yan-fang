@@ -4,7 +4,7 @@
 
 
 
-![banner02](C:\Users\hehe123\Desktop\banner02.jpg)
+![banner02](https://cdn.dafei110.cn/config/banner02.jpg)
 
 
 
@@ -14,7 +14,7 @@
 
 |                            客户端                            |                            师傅端                            |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="C:\Users\hehe123\Desktop\匠人验房师傅端.png" alt="匠人验房" style="zoom:50%;" /> | <img src="C:\Users\hehe123\Desktop\匠人验房师傅端.png" alt="匠人验房师傅端" style="zoom:50%;" /> |
+| <img src="https://cdn.dafei110.cn/%E5%8C%A0%E4%BA%BA%E9%AA%8C%E6%88%BF%E5%B8%88%E5%82%85%E7%AB%AF.png" alt="匠人验房" style="zoom:50%;" /> | <img src="https://cdn.dafei110.cn/%E5%8C%A0%E4%BA%BA%E9%AA%8C%E6%88%BF%E5%B8%88%E5%82%85%E7%AB%AF.png" alt="匠人验房师傅端" style="zoom:50%;" /> |
 
 
 
